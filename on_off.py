@@ -4,16 +4,16 @@ class Signal():
   def send(status: bool):
     #Sending fake signal
     radnom_number = random.random()
-    pass
+    if (radnom_number > 0.1):
+      return True
+    return False
 
 signal: Signal = Signal()
 
 def on():
   #send on signal
-  signal.send(True)
-  return True
+  return signal.send(True)
 
 def off():
   #send off signal
-  signal.send(False)
-  return True
+  return signal.send(False)
