@@ -1,6 +1,6 @@
 
 class Signal():
-  def send(bool: status):
+  def send(status: bool):
     #Sending fake signal
     pass
 
