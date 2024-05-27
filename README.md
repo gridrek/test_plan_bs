@@ -1,4 +1,4 @@
-# test_plan_bs
+# Testplan
 
 ## Krav 
 
