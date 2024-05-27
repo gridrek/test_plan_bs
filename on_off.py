@@ -1,7 +1,9 @@
+import random
 
 class Signal():
   def send(status: bool):
     #Sending fake signal
+    radnom_number = random.random()
     pass
 
 signal: Signal = Signal()
