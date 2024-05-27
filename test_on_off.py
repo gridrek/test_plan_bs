@@ -7,3 +7,5 @@ def test_on():
 def test_off():
   result = off()
   assert result == True
+
+test_on()

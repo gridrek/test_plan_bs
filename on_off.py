@@ -1,19 +1,23 @@
 import random
 
-class Signal():
-  def send(status: bool):
+class LampSignal():
+  def send(self, status: bool):
+    if(status == True):
+      print("turn on")
     #Sending fake signal
     radnom_number = random.random()
     if (radnom_number > 0.1):
       return True
     return False
 
-signal: Signal = Signal()
+lamp_signal: LampSignal = LampSignal()
 
-def on():
+def on() -> bool:
   #send on signal
-  return signal.send(True)
+  return lamp_signal.send(True)
 
 def off():
   #send off signal
-  return signal.send(False)
+  return lamp_signal.send(False)
+
+on()
