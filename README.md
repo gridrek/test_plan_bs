@@ -40,23 +40,3 @@ Miljö:
 Testfall, buggrapporter, testrapport. 
 
 (Skissera de förväntade utdata från testprocessen, såsom testfall, testrapporter och eventuella buggrapporter.) 
-
- 
-
-Testfallsmall 
-
- 
-
- 
-
-Omfattning: Vilken del av systemet ska vi testa i testplanen? APIet? Appen? Etc. Välj en. 
-
- 
-
-Enhetstester: testar funktioner i koden 
-
-Integrationstester: testar de olika modulerna i koden. Fungerar dom tillsammans?  
-
-Systemtester: testar delar av systemet. T.ex går det att logga in? 
-
-Acceptanstester: Man kikar på hur användare använder systemet. T.ex. hittar dom snabbt i menyerna. 
