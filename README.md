@@ -31,7 +31,6 @@ Verktyg:
 - Smartphone (för att testa app)
 - Högtalate (för att testa alexa med ett commando)
 - Mic
-- 
 Miljö:
 - Personal krävs för att titta runt i appen.
 
