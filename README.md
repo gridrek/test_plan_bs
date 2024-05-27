@@ -42,4 +42,4 @@ Testfall, buggrapporter, testrapport.
 (Skissera de förväntade utdata från testprocessen, såsom testfall, testrapporter och eventuella buggrapporter.) 
 
 ## Testfallsmall 
-### Link
+### [Link](https://github.com/gridrek/test_plan_bs/blob/main/Testfallsmall.pdf)
