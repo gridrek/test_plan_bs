@@ -2,7 +2,7 @@ import random
 
 class LampSignal():
   status: bool
-  
+
   def __init__(self, status: bool) -> None:
     self.status = status
 
@@ -26,8 +26,6 @@ class ScheduleSignal():
     pass
   def scheduleOff(time: float):
     pass
-
-lamp_signal: LampSignal = LampSignal()
 
 def on() -> bool:
   signal = LampSignal(True)
