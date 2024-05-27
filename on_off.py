@@ -1,9 +1,16 @@
 import random
 
 class LampSignal():
-  def send(self, status: bool):
-    if(status == True):
+  status: bool
+  
+  def __init__(self, status: bool) -> None:
+    self.status = status
+
+  def send(self):
+    if(self.status == True):
       print("turn on")
+    else:
+      print("turn off")
     #Sending fake signal
     radnom_number = random.random()
     if (radnom_number > 0.1):
@@ -15,19 +22,19 @@ class LampSignal():
 class ScheduleSignal():
   lamp_signals: list[LampSignal]
 
-  def scheduleOn():
+  def scheduleOn(time: float):
     pass
-  def scheduleOff():
+  def scheduleOff(time: float):
     pass
 
 lamp_signal: LampSignal = LampSignal()
 
 def on() -> bool:
-  #send on signal
-  return lamp_signal.send(True)
+  signal = LampSignal(True)
+  return signal.send()
 
 def off():
-  #send off signal
-  return lamp_signal.send(False)
+  signal = LampSignal(True)
+  return signal.send()
 
 on()
