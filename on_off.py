@@ -1,9 +1,10 @@
 
 class Signal():
   def send(bool: status):
-    #Sending fake signal 
+    #Sending fake signal
+    pass
 
-signal = Signal()
+signal: Signal = Signal()
 
 def on():
   #send on signal
