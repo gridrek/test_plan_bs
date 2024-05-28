@@ -1,4 +1,5 @@
 import random
+from datetime import datetime, timedelta
 
 class LampSignal():
   status: bool
@@ -18,14 +19,32 @@ class LampSignal():
       return True
     print("signal failed to send")
     return False
+  
 
-class ScheduleSignal():
-  lamp_signals: list[LampSignal]
+class SignalScheduler():
 
-  def scheduleOn(time: float):
+  def __init__(self) -> None:
+    self.lamp_signals: list[(LampSignal, datetime)] = []
     pass
-  def scheduleOff(time: float):
-    pass
+
+  def scheduleOnSignal(self, time_in_seconds: int):
+    signal: LampSignal = LampSignal(True)
+    now = datetime.now()
+    scheduled_time = now + timedelta(seconds=time_in_seconds)
+    print(len(self.lamp_signals))
+    if len(self.lamp_signals) == 0:
+      print("w")
+      self.lamp_signals.append((signal, scheduled_time))
+      return
+    for index, e in enumerate(self.lamp_signals, start=1):
+        
+
+
+
+  def scheduleOffSignal(self, time_in_seconds: int):
+    signal: LampSignal = LampSignal(False)
+
+
 
 def on() -> bool:
   signal = LampSignal(True)
@@ -35,4 +54,9 @@ def off():
   signal = LampSignal(True)
   return signal.send()
 
-on()
+signalScheduler = SignalScheduler()
+signalScheduler.scheduleOnSignal(20)
+print()
+signalScheduler.scheduleOnSignal(10)
+print()
+signalScheduler.scheduleOnSignal(30)
