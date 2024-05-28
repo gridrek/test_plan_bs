@@ -10,6 +10,7 @@ def test_off():
   result = off()
   assert result == True
 
+
 def test_schedule_on():
   scheduler = SignalScheduler()
   before_schedule_time = datetime.now()
