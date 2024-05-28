@@ -1,4 +1,4 @@
-# Testplan
+# Testplan Belysningssystem (app)
 
 ## Krav 
 
