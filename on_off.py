@@ -1,5 +1,6 @@
 import random
 from datetime import datetime, timedelta
+from typing import List, Tuple
 
 class LampSignal():
   status: bool
@@ -21,26 +22,26 @@ class LampSignal():
     return False
   
 
-class SignalScheduler():
-
+class SignalScheduler:
   def __init__(self) -> None:
-    self.lamp_signals: list[(LampSignal, datetime)] = []
-    pass
+    self.lamp_signals: List[Tuple[LampSignal, datetime]] = []
 
   def scheduleOnSignal(self, time_in_seconds: int):
     signal: LampSignal = LampSignal(True)
-    now = datetime.now()
-    scheduled_time = now + timedelta(seconds=time_in_seconds)
-    print(len(self.lamp_signals))
+    scheduled_time = datetime.now() + timedelta(seconds=time_in_seconds)
+    touple = (signal, scheduled_time)
     if len(self.lamp_signals) == 0:
-      print("w")
-      self.lamp_signals.append((signal, scheduled_time))
+      self.lamp_signals.append(touple)
       return
-    for index, e in enumerate(self.lamp_signals, start=1):
-        
-
-
-
+      
+    for index, e in enumerate(self.lamp_signals):
+      # Check if the scheduled signal is sooner than the current signal in the list
+      if touple[1] < e[1]:
+          self.lamp_signals.insert(index, touple)
+          return
+    # If not inserted yet, append to the end
+    self.lamp_signals.append(touple)
+    
   def scheduleOffSignal(self, time_in_seconds: int):
     signal: LampSignal = LampSignal(False)
 
@@ -55,8 +56,13 @@ def off():
   return signal.send()
 
 signalScheduler = SignalScheduler()
+print()
+print(f"NOW: {datetime.now()}")
 signalScheduler.scheduleOnSignal(20)
-print()
 signalScheduler.scheduleOnSignal(10)
-print()
 signalScheduler.scheduleOnSignal(30)
+signalScheduler.scheduleOnSignal(5)
+signalScheduler.scheduleOnSignal(15)
+
+for signal, scheduled_time in signalScheduler.lamp_signals:
+    print(f"LampSignal(status={'on' if signal.status else 'off'}) at {scheduled_time.strftime('%Y-%m-%d %H:%M:%S')}")
