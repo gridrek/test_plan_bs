@@ -29,34 +29,34 @@ class SignalScheduler:
   def scheduleOnSignal(self, time_in_seconds: int):
     signal: LampSignal = LampSignal(True)
     scheduled_time = datetime.now() + timedelta(seconds=time_in_seconds)
-    touple = (signal, scheduled_time)
+    tuple = (signal, scheduled_time)
     if len(self.lamp_signals) == 0:
-      self.lamp_signals.append(touple)
+      self.lamp_signals.append(tuple)
       return
       
     for index, e in enumerate(self.lamp_signals):
       # Check if the scheduled signal is sooner than the current signal in the list
-      if touple[1] < e[1]:
-          self.lamp_signals.insert(index, touple)
+      if tuple[1] < e[1]:
+          self.lamp_signals.insert(index, tuple)
           return
     # If not inserted yet, append to the end
-    self.lamp_signals.append(touple)
+    self.lamp_signals.append(tuple)
     
   def scheduleOffSignal(self, time_in_seconds: int):
     signal: LampSignal = LampSignal(False)
     scheduled_time = datetime.now() + timedelta(seconds=time_in_seconds)
-    touple = (signal, scheduled_time)
+    tuple = (signal, scheduled_time)
     if len(self.lamp_signals) == 0:
-      self.lamp_signals.append(touple)
+      self.lamp_signals.append(tuple)
       return
       
     for index, e in enumerate(self.lamp_signals):
       # Check if the scheduled signal is sooner than the current signal in the list
-      if touple[1] < e[1]:
-          self.lamp_signals.insert(index, touple)
+      if tuple[1] < e[1]:
+          self.lamp_signals.insert(index, tuple)
           return
     # If not inserted yet, append to the end
-    self.lamp_signals.append(touple)
+    self.lamp_signals.append(tuple)
 
 
 
