@@ -44,6 +44,19 @@ class SignalScheduler:
     
   def scheduleOffSignal(self, time_in_seconds: int):
     signal: LampSignal = LampSignal(False)
+    scheduled_time = datetime.now() + timedelta(seconds=time_in_seconds)
+    touple = (signal, scheduled_time)
+    if len(self.lamp_signals) == 0:
+      self.lamp_signals.append(touple)
+      return
+      
+    for index, e in enumerate(self.lamp_signals):
+      # Check if the scheduled signal is sooner than the current signal in the list
+      if touple[1] < e[1]:
+          self.lamp_signals.insert(index, touple)
+          return
+    # If not inserted yet, append to the end
+    self.lamp_signals.append(touple)
 
 
 
@@ -62,7 +75,7 @@ signalScheduler.scheduleOnSignal(20)
 signalScheduler.scheduleOnSignal(10)
 signalScheduler.scheduleOnSignal(30)
 signalScheduler.scheduleOnSignal(5)
-signalScheduler.scheduleOnSignal(15)
+signalScheduler.scheduleOffSignal(15)
 
 for signal, scheduled_time in signalScheduler.lamp_signals:
     print(f"LampSignal(status={'on' if signal.status else 'off'}) at {scheduled_time.strftime('%Y-%m-%d %H:%M:%S')}")
