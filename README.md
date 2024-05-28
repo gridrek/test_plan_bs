@@ -1,4 +1,4 @@
-# Testplan Belysningssystem (app)
+# [Testplan Belysningssystem (app)](https://github.com/gridrek/test_plan_bs)
 
 ## Krav 
 
